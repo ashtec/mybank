@@ -28,26 +28,26 @@ public class TransformTransactionsRespProcessor implements Processor {
 		for (int i = 0; i < NumOftransactions; i++) {
 			myBankTransaction = new MyBankTransaction();
 
-			myBankTransaction.setId(JsonPath.read(body, "$.transactions[" + i + "].id"));
-			myBankTransaction.setAccountId(JsonPath.read(body, "$.transactions[" + i + "].this_account.id"));
+			myBankTransaction.setId((String) JsonPath.read(body, "$.transactions[" + i + "].id"));
+			myBankTransaction.setAccountId((String) JsonPath.read(body, "$.transactions[" + i + "].this_account.id"));
 			myBankTransaction.setCounterpartyAccount(
-					JsonPath.read(body, "$.transactions[" + i + "].other_account.number"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].other_account.number"));
 			myBankTransaction.setCounterpartyName(
-					JsonPath.read(body, "$.transactions[" + i + "].other_account.holder.name"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].other_account.holder.name"));
 			myBankTransaction.setCounterPartyLogoPath(
-					JsonPath.read(body, "$.transactions[" + i + "].other_account.metadata.image_URL"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].other_account.metadata.image_URL"));
 			myBankTransaction.setInstructedAmount(
-					JsonPath.read(body, "$.transactions[" + i + "].details.value.amount"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].details.value.amount"));
 			myBankTransaction.setInstructedCurrency(
-					JsonPath.read(body, "$.transactions[" + i + "].details.value.currency"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].details.value.currency"));
 			myBankTransaction.setTransactionAmount(
-					JsonPath.read(body, "$.transactions[" + i + "].details.value.amount"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].details.value.amount"));
 			myBankTransaction.setTransactionCurrency(
-					JsonPath.read(body, "$.transactions[" + i + "].details.value.currency"));
+					(String) JsonPath.read(body, "$.transactions[" + i + "].details.value.currency"));
 			myBankTransaction
-					.setTransactionType(JsonPath.read(body, "$.transactions[" + i + "].details.type"));
+					.setTransactionType((String) JsonPath.read(body, "$.transactions[" + i + "].details.type"));
 			myBankTransaction
-					.setDescription(JsonPath.read(body, "$.transactions[" + i + "].details.description"));
+					.setDescription((String) JsonPath.read(body, "$.transactions[" + i + "].details.description"));
 
 			/*
 			 * myBankTransaction.setCounterpartyAccount(JsonPath.read(body,
